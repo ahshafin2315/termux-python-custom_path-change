@@ -31,18 +31,16 @@ export CPPFLAGS='-D__ANDROID_API__=24 -Wno-implicit-function-declaration'
 export CFLAGS='-D__ANDROID_API__=24 -Wno-implicit-function-declaration -Wno-int-conversion'
 mkdir -p target
 
-bash ./configure --prefix="$PWD/target" $TERMUX_PKG_EXTRA_CONFIGURE_ARGS 2>&1 | tee conf.log
+bash ./configure --prefix="$HOME/python-3.13.1" $TERMUX_PKG_EXTRA_CONFIGURE_ARGS 2>&1 | tee conf.log
 make -j6 2>&1 | tee build.log
 make install
 
-rm ./target/bin/idle3
-rm ./target/bin/pydoc3
-rm ./target/bin/python3
-rm ./target/bin/python3-config
+rm "$HOME/python-3.13.1/bin/idle3"
+rm "$HOME/python-3.13.1/bin/pydoc3"
+rm "$HOME/python-3.13.1/bin/python3"
+rm "$HOME/python-3.13.1/bin/python3-config"
 
-rm ./target/lib/pkgconfig/python3-embed.pc
-rm ./target/lib/pkgconfig/python3.pc
+rm "$HOME/python-3.13.1/lib/pkgconfig/python3-embed.pc"
+rm "$HOME/python-3.13.1/lib/pkgconfig/python3.pc"
 
-rm ./target/share/man/man1/python3.1
-
-mv target python-3.13.1
+rm "$HOME/python-3.13.1/share/man/man1/python3.1"
