@@ -39,8 +39,11 @@ rm "$HOME/python-3.13.1/bin/idle3"
 rm "$HOME/python-3.13.1/bin/pydoc3"
 rm "$HOME/python-3.13.1/bin/python3"
 rm "$HOME/python-3.13.1/bin/python3-config"
-
 rm "$HOME/python-3.13.1/lib/pkgconfig/python3-embed.pc"
 rm "$HOME/python-3.13.1/lib/pkgconfig/python3.pc"
-
 rm "$HOME/python-3.13.1/share/man/man1/python3.1"
+
+mkdir -p $PREFIX/stow
+mv $HOME/python-3.13.1 $PREFIX/stow/
+cd $PREFIX/stow
+stow -v --stow python-3.13.1
